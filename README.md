@@ -1,4 +1,5 @@
 # 🗂️ Padrón ETL — Completado automático de padrones vía DNI
+![CI](https://github.com/Rowix69/padron-etl/actions/workflows/ci.yml/badge.svg)
 
 Pipeline ETL en Python que convierte una lista de DNIs en un padrón completo (apellidos y nombres), consultando la API de Decolecta con **rotación automática de tokens** para sortear límites de cuota.
 
@@ -110,6 +111,15 @@ En macOS/Linux: `source .venv/bin/activate` y `cp .env.example .env`.
 | `ERROR_RED` / `ERROR_HTTP_xxx` | Fallo tras reintentos |
 | `PENDIENTE` | No se procesó por agotamiento de tokens o interrupción |
 
+## 🧪 Pruebas
+
+Las pruebas no consumen tokens ni llaman a la API real: simulan sus respuestas (incluidos 429, 401 y errores de red) para validar la rotación de tokens, la normalización de DNIs y la detección dinámica de columnas.
+
+```powershell
+pip install -r requirements-dev.txt
+python -m pytest -v
+```
+
 ## 🔒 Privacidad y seguridad
 
 Este proyecto procesa **datos personales de terceros**. Buenas prácticas aplicadas:
@@ -127,7 +137,7 @@ Este proyecto procesa **datos personales de terceros**. Buenas prácticas aplica
 
 ## 🗺️ Roadmap
 
-- [ ] Pruebas unitarias con `pytest` para normalización y detección de columna.
+- [x] Pruebas unitarias con `pytest` para normalización y detección de columna.
 - [ ] Caché/reanudación: omitir DNIs ya resueltos en ejecuciones previas.
 - [ ] Respeto del header `Retry-After` antes de rotar token.
 - [ ] Empaquetado como CLI instalable (`pyproject.toml`).
