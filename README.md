@@ -138,4 +138,4 @@ Python · pandas · requests · python-dotenv · openpyxl
 
 ## 👤 Autor
 
-**[Cesar]** · [GitHub](https://github.com/Rowix69)
+**[Rowix69]** · [GitHub](https://github.com/Rowix69)
