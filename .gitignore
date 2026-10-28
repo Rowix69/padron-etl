@@ -1,0 +1,24 @@
+# --- Secretos ---
+.env
+.env.*
+!.env.example
+
+# --- Datos sensibles del padron ---
+*.xlsx
+*.xls
+*.csv
+data/*
+!data/.gitkeep
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# --- Editor / SO ---
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
